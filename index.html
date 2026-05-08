@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find your perfect rental in Rustenburg. Houses, rooms, and commercial spaces available.">
+  <meta name="theme-color" content="#0066cc">
+  <title>Rustenburg Rentals | Find Your Perfect Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { scroll-behavior: smooth; }
+    .property-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .property-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    .btn-primary { transition: all 0.2s ease; }
+    .btn-primary:active { transform: scale(0.98); }
+    @media (max-width: 640px) { .mobile-hidden { display: none; } }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+<!-- Mobile Menu Button -->
+<div id="mobileMenuBtn" class="fixed md:hidden bottom-24 right-6 z-40 bg-blue-600 text-white p-3 rounded-full shadow-lg cursor-pointer hover:bg-blue-700">
+  <i class="fas fa-bars text-xl"></i>
+</div>
+
+<!-- Header/Navigation -->
+<header class="bg-white shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
+    <div class="flex items-center space-x-2">
+      <i class="fas fa-home text-blue-600 text-2xl"></i>
+      <h1 class="text-xl sm:text-2xl font-extrabold text-blue-600">Rustenburg Rentals</h1>
+    </div>
+    
+    <nav class="hidden md:flex space-x-6 font-medium text-sm lg:text-base">
+      <a href="#home" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+      <a href="#listings" class="text-gray-700 hover:text-blue-600 transition">Properties</a>
+      <a href="#features" class="text-gray-700 hover:text-blue-600 transition">Why Us</a>
+      <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+      <a href="#admin" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Admin</a>
+    </nav>
+
+    <button id="mobileMenuToggle" class="md:hidden text-gray-700 text-xl">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200">
+    <div class="px-4 py-3 space-y-2">
+      <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+      <a href="#listings" class="block py-2 text-gray-700 hover:text-blue-600">Properties</a>
+      <a href="#features" class="block py-2 text-gray-700 hover:text-blue-600">Why Us</a>
+      <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+      <a href="#admin" class="block py-2 bg-blue-600 text-white px-4 rounded-lg text-center">Admin</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16 sm:py-20 md:py-28 px-4 sm:px-6 text-center overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22white%22/></svg>');"></div>
+  </div>
+  
+  <div class="max-w-3xl mx-auto relative z-10">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">Find Your Perfect Space in Rustenburg</h2>
+    <p class="text-base sm:text-lg md:text-xl opacity-90 mb-8">Discover reliable houses, rooms, and commercial rentals tailored to your needs.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#listings" class="btn-primary bg-white text-blue-600 px-6 sm:px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transition inline-block">
+        Browse Properties
+      </a>
+      <a href="#contact" class="btn-primary bg-blue-500 text-white px-6 sm:px-8 py-3 rounded-full font-bold border-2 border-white hover:bg-blue-700 transition inline-block">
+        Get in Touch
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-16 sm:py-20 px-4 sm:px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12">Why Choose Us?</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div class="p-6 sm:p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl text-center hover:shadow-lg transition">
+        <i class="fas fa-search text-3xl text-blue-600 mb-4"></i>
+        <h3 class="text-lg sm:text-xl font-bold mb-2">Easy Search</h3>
+        <p class="text-gray-700 text-sm sm:text-base">Find properties that match your budget and preferences instantly.</p>
+      </div>
+      <div class="p-6 sm:p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl text-center hover:shadow-lg transition">
+        <i class="fas fa-shield-alt text-3xl text-green-600 mb-4"></i>
+        <h3 class="text-lg sm:text-xl font-bold mb-2">Verified Listings</h3>
+        <p class="text-gray-700 text-sm sm:text-base">All properties are verified for quality and authenticity.</p>
+      </div>
+      <div class="p-6 sm:p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl text-center hover:shadow-lg transition">
+        <i class="fas fa-headset text-3xl text-purple-600 mb-4"></i>
+        <h3 class="text-lg sm:text-xl font-bold mb-2">24/7 Support</h3>
+        <p class="text-gray-700 text-sm sm:text-base">Our team is always available to help with your inquiries.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Listings Section -->
+<section id="listings" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6">
+  <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 sm:mb-10">
+    <div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold">Available Properties</h2>
+      <p class="text-gray-600 mt-2 text-sm sm:text-base">Explore our curated selection of premium rentals</p>
+    </div>
+    <span id="propCount" class="text-gray-600 font-semibold text-sm sm:text-base bg-blue-50 px-4 py-2 rounded-full"></span>
+  </div>
+
+  <!-- Filter Section -->
+  <div class="mb-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+    <input type="text" id="filterSearch" placeholder="Search by name..." class="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+    <select id="filterPrice" class="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+      <option value="">All Prices</option>
+      <option value="0-2000">R0 - R2,000</option>
+      <option value="2000-5000">R2,000 - R5,000</option>
+      <option value="5000-10000">R5,000 - R10,000</option>
+      <option value="10000+">R10,000+</option>
+    </select>
+  </div>
+
+  <div id="propertyList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+    <div class="col-span-full text-center py-12">
+      <i class="fas fa-inbox text-4xl text-gray-300 mb-4"></i>
+      <p class="text-gray-500 text-lg">No properties listed yet. Check back soon!</p>
+    </div>
+  </div>
+</section>
+
+<!-- Booking Section -->
+<section id="contact" class="py-16 sm:py-20 bg-gradient-to-br from-blue-50 to-blue-100 px-4 sm:px-6">
+  <div class="max-w-2xl mx-auto">
+    <div class="bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-xl border border-gray-100">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-2 text-center">Schedule a Viewing</h2>
+      <p class="text-gray-600 text-center mb-8 text-sm sm:text-base">Select a property and book your tour with our team</p>
+      
+      <form id="bookingForm" class="space-y-4 sm:space-y-5">
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+          <input type="text" id="bookingName" placeholder="Your full name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+        </div>
+        
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+            <input type="email" id="bookingEmail" placeholder="your@email.com" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+            <input type="tel" id="bookingPhone" placeholder="+27 ..." required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Property</label>
+            <select id="bookingProperty" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+              <option value="">Select a property...</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Preferred Date</label>
+            <input type="date" id="bookingDate" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+          <textarea id="bookingMessage" placeholder="Tell us about your requirements..." rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-bold transition text-sm sm:text-base">
+          Submit Viewing Request
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Map Section -->
+<section id="map" class="py-16 sm:py-20 bg-white px-4 sm:px-6">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12">Our Location</h2>
+    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+      <iframe class="w-full h-64 sm:h-80 md:h-96" src="https://www.google.com/maps?q=Rustenburg,+South+Africa&output=embed" loading="lazy" title="Rustenburg location map"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Admin Panel -->
+<section id="admin" class="py-16 sm:py-20 bg-gray-900 text-white px-4 sm:px-6">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-center">Admin Panel</h2>
+    <p class="text-gray-400 text-center mb-8 text-sm sm:text-base">Add or manage property listings</p>
+    
+    <form id="adminForm" class="space-y-4 mb-10">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <input type="text" id="title" placeholder="Property Title (e.g., 2-Bedroom Flat)" class="p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500 text-sm" required>
+        <input type="text" id="price" placeholder="Price (e.g., R5000/month)" class="p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500 text-sm" required>
+      </div>
+      <input type="url" id="image" placeholder="Image URL (https://...)" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500 text-sm" required>
+      <textarea id="description" placeholder="Property description..." rows="3" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500 text-sm resize-none"></textarea>
+      <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-bold transition text-sm sm:text-base">
+        <i class="fas fa-plus mr-2"></i>Add New Listing
+      </button>
+    </form>
+
+    <!-- Admin Property List -->
+    <div>
+      <h3 class="text-lg font-bold mb-4">Current Listings</h3>
+      <div id="adminList" class="space-y-3 max-h-96 overflow-y-auto">
+        <p class="text-gray-400 text-center py-6">No listings yet</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/27839725066?text=Hi%20I%20am%20interested%20in%20a%20rental" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white p-4 sm:px-6 sm:py-3 rounded-full shadow-2xl flex items-center space-x-2 transition hover:scale-110 text-sm sm:text-base">
+  <i class="fas fa-whatsapp text-xl"></i>
+  <span class="hidden sm:inline font-bold">WhatsApp</span>
+</a>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-8 sm:py-10 px-4 sm:px-6 border-t border-gray-800">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid sm:grid-cols-3 gap-6 sm:gap-8 mb-8">
+      <div>
+        <h3 class="font-bold mb-3 flex items-center gap-2"><i class="fas fa-home"></i>Rustenburg Rentals</h3>
+        <p class="text-gray-400 text-sm">Finding quality rentals in Rustenburg since 2026.</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Quick Links</h4>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li><a href="#home" class="hover:text-white transition">Home</a></li>
+          <li><a href="#listings" class="hover:text-white transition">Properties</a></li>
+          <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Contact</h4>
+        <p class="text-gray-400 text-sm"><i class="fas fa-phone mr-2"></i>+27 83 972 5066</p>
+        <p class="text-gray-400 text-sm"><i class="fas fa-map-marker mr-2"></i>Rustenburg, South Africa</p>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">
+      <p>© 2026 Rustenburg Rentals. All rights reserved. Built with <i class="fas fa-heart text-red-500"></i> for the community.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Initialize properties
+let properties = JSON.parse(localStorage.getItem('properties')) || [
+  { title: "Modern 2-Bedroom Flat", price: "R4,500/month", image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&h=350&fit=crop", description: "Newly renovated flat with modern amenities" },
+  { title: "Spacious 3-Bedroom House", price: "R6,500/month", image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500&h=350&fit=crop", description: "Family-friendly house with garden" }
+];
+
+// Mobile menu toggle
+document.getElementById('mobileMenuToggle').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.toggle('hidden');
+});
+
+// Update booking property select
+function updateBookingSelect() {
+  const select = document.getElementById('bookingProperty');
+  select.innerHTML = '<option value="">Select a property...</option>';
+  properties.forEach((p, i) => {
+    const opt = document.createElement('option');
+    opt.value = p.title;
+    opt.textContent = p.title + " - " + p.price;
+    select.appendChild(opt);
+  });
+}
+
+// Render properties
+function renderProperties() {
+  const list = document.getElementById('propertyList');
+  const adminList = document.getElementById('adminList');
+  const countLabel = document.getElementById('propCount');
+  
+  countLabel.textContent = `${properties.length} Properties Available`;
+
+  if (properties.length === 0) {
+    list.innerHTML = '<div class="col-span-full text-center py-12"><i class="fas fa-inbox text-4xl text-gray-300 mb-4"></i><p class="text-gray-500 text-lg">No properties listed yet. Check back soon!</p></div>';
+    adminList.innerHTML = '<p class="text-gray-400 text-center py-6">No listings yet</p>';
+    return;
+  }
+
+  list.innerHTML = properties.map((p, i) => `
+    <div class="property-card bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100">
+      <div class="relative overflow-hidden h-48 sm:h-56 bg-gray-200">
+        <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://via.placeholder.com/500x350?text=Property+Image'"/>
+        <div class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">AVAILABLE</div>
+      </div>
+      <div class="p-4 sm:p-6">
+        <h3 class="text-lg sm:text-xl font-bold mb-1">${p.title}</h3>
+        <p class="text-blue-600 font-bold text-lg mb-2">${p.price}</p>
+        <p class="text-gray-600 text-sm mb-4 line-clamp-2">${p.description || 'Quality rental property'}</p>
+        <div class="flex gap-2 flex-wrap">
+          <a href="https://wa.me/27839725066?text=Hi, I'm interested in: ${encodeURIComponent(p.title)}" target="_blank" class="flex-1 text-center bg-green-500 text-white px-3 py-2 rounded-lg font-semibold hover:bg-green-600 transition text-sm">
+            <i class="fas fa-whatsapp mr-1"></i>WhatsApp
+          </a>
+          <button onclick="deleteProperty(${i})" class="px-3 py-2 border border-red-300 text-red-600 rounded-lg hover:bg-red-50 transition text-sm">
+            <i class="fas fa-trash mr-1"></i>Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  adminList.innerHTML = properties.map((p, i) => `
+    <div class="bg-gray-800 p-3 sm:p-4 rounded-lg flex justify-between items-start gap-3 flex-wrap">
+      <div class="flex-1 min-w-0">
+        <p class="font-semibold text-sm sm:text-base">${p.title}</p>
+        <p class="text-green-400 text-sm">${p.price}</p>
+      </div>
+      <button onclick="deleteProperty(${i})" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm transition">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+  `).join('');
+
+  updateBookingSelect();
+}
+
+function deleteProperty(index) {
+  if(confirm('Remove this listing permanently?')) {
+    properties.splice(index, 1);
+    localStorage.setItem('properties', JSON.stringify(properties));
+    renderProperties();
+  }
+}
+
+// Add property
+document.getElementById('adminForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const newProperty = {
+    title: document.getElementById('title').value.trim(),
+    price: document.getElementById('price').value.trim(),
+    image: document.getElementById('image').value.trim(),
+    description: document.getElementById('description').value.trim()
+  };
+  
+  if(newProperty.title && newProperty.price && newProperty.image) {
+    properties.unshift(newProperty);
+    localStorage.setItem('properties', JSON.stringify(properties));
+    renderProperties();
+    e.target.reset();
+    alert('✓ Property added successfully!');
+  }
+});
+
+// Booking form
+document.getElementById('bookingForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('bookingName').value;
+  const property = document.getElementById('bookingProperty').value;
+  alert(`✓ Viewing request submitted!\n\nWe'll contact you soon regarding "${property}". Thank you, ${name}!`);
+  e.target.reset();
+});
+
+// Filter functionality
+document.getElementById('filterSearch').addEventListener('input', filterProperties);
+document.getElementById('filterPrice').addEventListener('change', filterProperties);
+
+function filterProperties() {
+  const search = document.getElementById('filterSearch').value.toLowerCase();
+  const priceRange = document.getElementById('filterPrice').value;
+  
+  const filtered = properties.filter(p => {
+    const matchesSearch = p.title.toLowerCase().includes(search);
+    if(!matchesSearch) return false;
+    
+    if(!priceRange) return true;
+    
+    const price = parseInt(p.price.match(/\d+/)[0]);
+    if(priceRange === '0-2000') return price <= 2000;
+    if(priceRange === '2000-5000') return price >= 2000 && price <= 5000;
+    if(priceRange === '5000-10000') return price >= 5000 && price <= 10000;
+    if(priceRange === '10000+') return price >= 10000;
+    return true;
+  });
+
+  displayFiltered(filtered);
+}
+
+function displayFiltered(filtered) {
+  const list = document.getElementById('propertyList');
+  
+  if(filtered.length === 0) {
+    list.innerHTML = '<div class="col-span-full text-center py-12"><i class="fas fa-search text-4xl text-gray-300 mb-4"></i><p class="text-gray-500">No properties match your search.</p></div>';
+    return;
+  }
+
+  list.innerHTML = filtered.map((p, i) => {
+    const originalIndex = properties.indexOf(p);
+    return `
+      <div class="property-card bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100">
+        <div class="relative overflow-hidden h-48 sm:h-56 bg-gray-200">
+          <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://via.placeholder.com/500x350?text=Property+Image'"/>
+          <div class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">AVAILABLE</div>
+        </div>
+        <div class="p-4 sm:p-6">
+          <h3 class="text-lg sm:text-xl font-bold mb-1">${p.title}</h3>
+          <p class="text-blue-600 font-bold text-lg mb-2">${p.price}</p>
+          <p class="text-gray-600 text-sm mb-4 line-clamp-2">${p.description || 'Quality rental property'}</p>
+          <div class="flex gap-2 flex-wrap">
+            <a href="https://wa.me/27839725066?text=Hi, I'm interested in: ${encodeURIComponent(p.title)}" target="_blank" class="flex-1 text-center bg-green-500 text-white px-3 py-2 rounded-lg font-semibold hover:bg-green-600 transition text-sm">
+              <i class="fas fa-whatsapp mr-1"></i>WhatsApp
+            </a>
+            <button onclick="deleteProperty(${originalIndex})" class="px-3 py-2 border border-red-300 text-red-600 rounded-lg hover:bg-red-50 transition text-sm">
+              <i class="fas fa-trash mr-1"></i>Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// Initialize
+renderProperties();
+</script>
+
+</body>
+</html>
